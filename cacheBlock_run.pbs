@@ -1,0 +1,29 @@
+#!/bin/bash --login
+#
+#PBS -N CrayPAT
+#PBS -l select=1
+#PBS -l walltime=00:20:00
+#PBS -A n02-weat
+
+# Job submission script for running cache-blocking code
+# using CrayPAT (perftools) on ARCHER
+
+# Move to directory that script was submitted from
+export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)
+cd $PBS_O_WORKDIR
+
+# load the relevant perftools modules
+module load perftools-base
+module load perftools
+
+# Turn on hardware performance monitoring during sampling
+# 1 = Summary - FP and cache metrics (default) 
+# 2 = L1 and L2 cache metrics
+# See https://www.nersc.gov/assets/Uploads/UsingCrayPat.pdf for full list of options
+export PAT_RT_PERFCTR=2
+
+# remember to change the name of the executable if necessary
+aprun -n 1 ./matmult_blocked.exe+pat
+
+#aprun -n 1 ./matmult_blocked.exe+apa
+
