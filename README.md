@@ -40,7 +40,7 @@ Currently the blocked and non-blocked versions of the code must be built and run
 
 Note that in the fortran code, the block size is specified as the integer parameter `chunk_dim` (set to 128 by default). Feel free to experiment with different values.
 
-### 5) Instrument the executable in preparation for performing a sampling experiment:
+#### 5) Instrument the executable in preparation for performing a sampling experiment:
 
    ```pat_build ./matmult_blocked.exe```
 
