@@ -3,6 +3,8 @@
 #PBS -N CrayPAT
 #PBS -l select=1
 #PBS -l walltime=00:20:00
+
+# Specify your own archer budget code here!
 #PBS -A n02-weat
 
 # Job submission script for running cache-blocking code
@@ -17,13 +19,11 @@ module load perftools-base
 module load perftools
 
 # Turn on hardware performance monitoring during sampling
-# 1 = Summary - FP and cache metrics (default) 
+export PAT_RT_PERFCTR=2
+# 1 = Summary - FP and cache metrics (default)
 # 2 = L1 and L2 cache metrics
 # See https://www.nersc.gov/assets/Uploads/UsingCrayPat.pdf for full list of options
-export PAT_RT_PERFCTR=2
 
-# remember to change the name of the executable if necessary
+# remember to change the name of the executable as necessary
 aprun -n 1 ./matmult_blocked.exe+pat
-
-#aprun -n 1 ./matmult_blocked.exe+apa
 
