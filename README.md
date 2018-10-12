@@ -62,6 +62,6 @@ To do this, you must run the `pat_report` tool on the `.xf` file, e.g.
 
 This will save the output to the text file, `report`
 
-8) Once you have generated the pat report for the blocked version of the code, you can repeat the process using the non-blocked verison, i.e. repeat steps 4-7 using `matmult_nonblock.exe` instead, and then compare the cache metrics and wallclock times in both pat report files to quantify the performance benefit of using the cache blocking approach. 
+#### 8) Once you have generated the pat report for the blocked version of the code, you can repeat the process using the non-blocked verison, i.e. repeat steps 4-7 using `matmult_nonblock.exe` instead, and then compare the cache metrics and wallclock times in both pat report files to quantify the performance benefit of using the cache blocking approach. 
 
 
